@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no">
+
+<meta name="theme-color" content="#02080d">
+
+<title>MOUAD — Welcome To My World</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+
+    overflow-x:hidden;
+
+    background:#01070b;
+
+    color:white;
+
+    font-family:"Inter",sans-serif;
+}
+
+
+/* =========================================================
+   OCEAN BACKGROUND
+========================================================= */
+
+.ocean{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-20;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(22,91,120,.28),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 75%,
+            rgba(0,112,145,.18),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            #020b11 0%,
+            #02151e 35%,
+            #010b12 70%,
+            #000305 100%
+        );
+}
+
+
+/* =========================================================
+   DEEP OCEAN LIGHT
+========================================================= */
+
+.ocean-light{
+
+    position:absolute;
+
+    width:800px;
+    height:800px;
+
+    left:50%;
+    top:8%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(53,190,235,.18),
+            transparent 58%
+        );
+
+    filter:blur(25px);
+
+    animation:
+
+        lightPulse
+        8s ease-in-out infinite alternate;
+}
+
+
+@keyframes lightPulse{
+
+    0%{
+        transform:
+            translateX(-50%)
+            scale(.85);
+
+        opacity:.45;
+    }
+
+    100%{
+        transform:
+            translateX(-50%)
+            scale(1.15);
+
+        opacity:.8;
+    }
+}
+
+
+/* =========================================================
+   WATER CAUSTICS
+========================================================= */
+
+.caustics{
+
+    position:absolute;
+
+    inset:-20%;
+
+    opacity:.16;
+
+    background:
+
+        repeating-linear-gradient(
+            115deg,
+            transparent 0 35px,
+            rgba(100,220,255,.15) 37px,
+            transparent 45px
+        );
+
+    filter:
+        blur(10px);
+
+    transform:
+        rotate(-8deg);
+
+    animation:
+        waterMove
+        15s linear infinite;
+}
+
+
+@keyframes waterMove{
+
+    from{
+        transform:
+            translate3d(-5%,0,0)
+            rotate(-8deg);
+    }
+
+    to{
+        transform:
+            translate3d(5%,4%,0)
+            rotate(-8deg);
+    }
+}
+
+
+/* =========================================================
+   WAVES
+========================================================= */
+
+.wave{
+
+    position:absolute;
+
+    left:-15%;
+
+    width:130%;
+
+    border-radius:50%;
+
+    border-top:
+        1px solid
+        rgba(105,215,255,.22);
+
+    filter:
+        blur(1px);
+}
+
+
+.wave.one{
+
+    height:280px;
+
+    bottom:4%;
+
+    transform:
+        rotate(-4deg);
+
+    animation:
+        waveOne
+        8s ease-in-out infinite alternate;
+}
+
+
+.wave.two{
+
+    height:200px;
+
+    bottom:16%;
+
+    opacity:.55;
+
+    transform:
+        rotate(3deg);
+
+    animation:
+        waveTwo
+        10s ease-in-out infinite alternate;
+}
+
+
+.wave.three{
+
+    height:150px;
+
+    bottom:28%;
+
+    opacity:.28;
+
+    animation:
+        waveThree
+        12s ease-in-out infinite alternate;
+}
+
+
+@keyframes waveOne{
+
+    from{
+        transform:
+            translateX(-3%)
+            rotate(-4deg);
+    }
+
+    to{
+        transform:
+            translateX(4%)
+            rotate(-2deg);
+    }
+}
+
+
+@keyframes waveTwo{
+
+    from{
+        transform:
+            translateX(5%)
+            rotate(3deg);
+    }
+
+    to{
+        transform:
+            translateX(-5%)
+            rotate(1deg);
+    }
+}
+
+
+@keyframes waveThree{
+
+    from{
+        transform:
+            translateX(-4%)
+            rotate(-2deg);
+    }
+
+    to{
+        transform:
+            translateX(6%)
+            rotate(2deg);
+    }
+}
+
+
+/* =========================================================
+   3D DEPTH CIRCLES
+========================================================= */
+
+.depth{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(55,190,235,.12);
+
+    box-shadow:
+        inset 0 0 60px
+        rgba(0,120,170,.08);
+
+    animation:
+        depthFloat
+        12s ease-in-out infinite;
+}
+
+
+.depth.one{
+
+    width:700px;
+    height:700px;
+
+    left:-250px;
+    top:35%;
+}
+
+
+.depth.two{
+
+    width:480px;
+    height:480px;
+
+    right:-170px;
+    top:15%;
+
+    animation-delay:-4s;
+}
+
+
+.depth.three{
+
+    width:900px;
+    height:900px;
+
+    left:25%;
+    top:45%;
+
+    opacity:.35;
+
+    animation-delay:-8s;
+}
+
+
+@keyframes depthFloat{
+
+    0%,100%{
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translate3d(30px,-35px,0)
+            rotate(8deg);
+    }
+}
+
+
+/* =========================================================
+   DARK VIGNETTE
+========================================================= */
+
+.vignette{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.78),
+            transparent 35%,
+            transparent 65%,
+            rgba(0,0,0,.75)
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.92),
+            transparent 40%,
+            rgba(0,0,0,.25)
+        );
+
+    z-index:5;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   BUBBLES
+========================================================= */
+
+#bubbles{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.page{
+
+    position:relative;
+
+    z-index:10;
+
+    min-height:100svh;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+nav{
+
+    height:75px;
+
+    padding:
+        0 6%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:
+        rgba(0,7,12,.22);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid
+        rgba(100,210,240,.09);
+}
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    font-family:Cinzel,serif;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+}
+
+
+.logo-orb{
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(120,225,255,.9);
+
+    box-shadow:
+
+        0 0 15px
+        rgba(0,190,255,.7),
+
+        inset 0 0 12px
+        rgba(0,190,255,.5);
+
+    position:relative;
+}
+
+
+.logo-orb::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#8eeaff;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    box-shadow:
+        0 0 15px #3edcff;
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    gap:32px;
+
+    list-style:none;
+}
+
+
+.nav-links a{
+
+    color:
+        rgba(255,255,255,.65);
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+}
+
+
+.nav-links a:hover{
+
+    color:#6eeaff;
+
+    text-shadow:
+        0 0 15px
+        #00cfff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    flex:1;
+
+    width:
+        min(680px,92%);
+
+    margin:auto;
+
+    padding:
+        45px 0 35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile{
+
+    width:105px;
+    height:105px;
+
+    padding:3px;
+
+    border-radius:50%;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            #5de8ff,
+            #006d91,
+            #b4f5ff,
+            #007eaa,
+            #5de8ff
+        );
+
+    box-shadow:
+
+        0 0 25px
+        rgba(0,205,255,.5),
+
+        0 0 70px
+        rgba(0,160,220,.22);
+
+    animation:
+        profileRotate
+        7s linear infinite;
+}
+
+
+.profile-image{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    display:block;
+
+    border:
+        3px solid
+        #031017;
+}
+
+
+@keyframes profileRotate{
+
+    50%{
+        box-shadow:
+
+            0 0 38px
+            rgba(0,210,255,.75),
+
+            0 0 90px
+            rgba(0,160,220,.3);
+    }
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+h1{
+
+    margin-top:18px;
+
+    font-family:Cinzel,serif;
+
+    font-size:
+        clamp(40px,8vw,68px);
+
+    letter-spacing:10px;
+
+    font-weight:700;
+
+    text-shadow:
+
+        0 0 25px
+        rgba(40,205,255,.25),
+
+        0 8px 35px
+        #000;
+}
+
+
+.tagline{
+
+    margin-top:4px;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:#79ddf5;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTONS
+========================================================= */
+
+.socials{
+
+    width:100%;
+
+    margin-top:38px;
+
+    display:grid;
+
+    gap:13px;
+}
+
+
+.social{
+
+    position:relative;
+
+    min-height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:
+        13px 20px;
+
+    text-decoration:none;
+
+    color:white;
+
+    border:
+        1px solid
+        rgba(92,211,244,.3);
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            105deg,
+            rgba(8,30,38,.68),
+            rgba(2,11,16,.42)
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+
+        inset 0 1px
+        rgba(255,255,255,.07),
+
+        0 15px 35px
+        rgba(0,0,0,.35);
+
+    overflow:hidden;
+
+    transition:
+
+        transform .35s
+        cubic-bezier(.2,.8,.2,1),
+
+        border-color .35s,
+
+        box-shadow .35s;
+}
+
+
+.social::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            105deg,
+            transparent 20%,
+            rgba(72,216,255,.15),
+            transparent 70%
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:.7s;
+}
+
+
+.social:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.025);
+
+    border-color:
+        rgba(85,220,255,.85);
+
+    box-shadow:
+
+        0 0 30px
+        rgba(0,200,255,.22),
+
+        0 20px 45px
+        rgba(0,0,0,.55);
+}
+
+
+.social:hover::before{
+
+    transform:
+        translateX(100%);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.icon{
+
+    width:47px;
+    height:47px;
+
+    flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(100,220,255,.2);
+
+    transition:.3s;
+}
+
+
+.icon svg{
+
+    width:25px;
+    height:25px;
+}
+
+
+.social:hover .icon{
+
+    background:
+        rgba(0,180,230,.12);
+
+    border-color:
+        rgba(80,220,255,.6);
+
+    box-shadow:
+        0 0 20px
+        rgba(0,190,255,.2);
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram-icon svg{
+
+    fill:none;
+
+    stroke:white;
+
+    stroke-width:1.8;
+}
+
+
+.instagram-icon .dot{
+
+    fill:white;
+
+    stroke:none;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-icon svg{
+
+    fill:white;
+}
+
+
+/* =========================================================
+   SNAPCHAT
+========================================================= */
+
+.snapchat-icon svg{
+
+    fill:white;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.social-text{
+
+    flex:1;
+
+    text-align:left;
+}
+
+
+.social-name{
+
+    font-family:Cinzel,serif;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+}
+
+
+.social-sub{
+
+    margin-top:4px;
+
+    color:
+        rgba(255,255,255,.48);
+
+    font-size:11px;
+}
+
+
+.arrow{
+
+    color:#69ddff;
+
+    font-size:20px;
+
+    transition:.3s;
+}
+
+
+.social:hover .arrow{
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   INSANE SPECIAL BUTTON
+========================================================= */
+
+.special{
+
+    position:relative;
+
+    margin-top:5px;
+
+    min-height:105px;
+
+    border-radius:25px;
+
+    padding:2px;
+
+    text-decoration:none;
+
+    overflow:hidden;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            #00d9ff,
+            #0065ff,
+            #8a2cff,
+            #00d9ff
+        );
+
+    animation:
+        specialRotate
+        5s linear infinite;
+
+    box-shadow:
+
+        0 0 35px
+        rgba(0,180,255,.2);
+}
+
+
+@keyframes specialRotate{
+
+    to{
+        filter:
+            hue-rotate(360deg);
+    }
+}
+
+
+.special-inner{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    min-height:101px;
+
+    border-radius:23px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:
+        18px 22px;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(0,210,255,.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            110deg,
+            rgba(4,15,25,.96),
+            rgba(5,5,18,.94)
+        );
+
+    overflow:hidden;
+}
+
+
+.special-inner::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:160px;
+    height:160px;
+
+    right:-30px;
+    top:-50px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(120,230,255,.35);
+
+    box-shadow:
+
+        0 0 40px
+        rgba(0,210,255,.15),
+
+        inset 0 0 30px
+        rgba(0,210,255,.08);
+
+    animation:
+        specialOrb
+        4s ease-in-out infinite;
+}
+
+
+@keyframes specialOrb{
+
+    50%{
+        transform:
+            scale(1.15)
+            rotate(25deg);
+    }
+}
+
+
+.special-symbol{
+
+    width:50px;
+    height:50px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(100,230,255,.6);
+
+    color:#8beeff;
+
+    font-size:22px;
+
+    box-shadow:
+        0 0 25px
+        rgba(0,210,255,.3);
+}
+
+
+.special-text{
+
+    margin-left:17px;
+
+    text-align:left;
+
+    z-index:2;
+}
+
+
+.special-title{
+
+    font-family:Cinzel,serif;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    color:#d8faff;
+}
+
+
+.special-sub{
+
+    margin-top:5px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:
+        rgba(170,235,255,.5);
+}
+
+
+.special-arrow{
+
+    margin-left:auto;
+
+    font-size:24px;
+
+    color:#79eaff;
+
+    z-index:2;
+
+    transition:.3s;
+}
+
+
+.special:hover{
+
+    transform:
+        scale(1.035);
+
+    box-shadow:
+
+        0 0 45px
+        rgba(0,200,255,.4),
+
+        0 0 100px
+        rgba(90,40,255,.15);
+}
+
+
+.special:hover
+.special-arrow{
+
+    transform:
+        translateX(7px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    text-align:center;
+
+    padding:
+        25px 20px;
+
+    color:
+        rgba(255,255,255,.32);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+
+footer strong{
+
+    color:#71ddf5;
+
+    font-weight:500;
+
+    text-shadow:
+        0 0 12px
+        rgba(0,200,255,.4);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    nav{
+
+        height:62px;
+
+        padding:
+            0 20px;
+    }
+
+
+    .nav-links{
+
+        display:none;
+    }
+
+
+    .ocean-light{
+
+        width:600px;
+        height:600px;
+
+        top:10%;
+    }
+
+
+    .hero{
+
+        padding-top:32px;
+
+        width:90%;
+    }
+
+
+    .profile{
+
+        width:88px;
+        height:88px;
+    }
+
+
+    h1{
+
+        font-size:38px;
+
+        letter-spacing:6px;
+    }
+
+
+    .tagline{
+
+        font-size:8px;
+
+        letter-spacing:3px;
+    }
+
+
+    .social{
+
+        min-height:70px;
+
+        padding:
+            10px 14px;
+    }
+
+
+    .icon{
+
+        width:42px;
+        height:42px;
+    }
+
+
+    .social-name{
+
+        font-size:12px;
+    }
+
+
+    .social-sub{
+
+        font-size:10px;
+    }
+
+
+    .special{
+
+        min-height:92px;
+    }
+
+
+    .special-inner{
+
+        min-height:88px;
+
+        padding:
+            15px;
+    }
+
+
+    footer{
+
+        padding-bottom:18px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        transition-duration:.01ms !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     CINEMATIC OCEAN
+======================================================= -->
+
+<div class="ocean">
+
+    <div class="ocean-light"></div>
+
+    <div class="caustics"></div>
+
+    <div class="depth one"></div>
+
+    <div class="depth two"></div>
+
+    <div class="depth three"></div>
+
+    <div class="wave one"></div>
+
+    <div class="wave two"></div>
+
+    <div class="wave three"></div>
+
+    <div class="vignette"></div>
+
+</div>
+
+
+<canvas id="bubbles"></canvas>
+
+
+
+<!-- =======================================================
+     WEBSITE
+======================================================= -->
+
+<div class="page">
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+
+        <div class="logo-orb"></div>
+
+        MOUAD
+
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#">
+                HOME
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                ABOUT
+            </a>
+        </li>
+
+        <li>
+            <a href="#socials">
+                SOCIALS
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<main class="hero">
+
+
+    <!-- =================================================
+         YOUR PROFILE PHOTO
+
+         Put:
+
+         profile.jpg
+
+         in the same folder as index.html
+    ================================================== -->
+
+    <div class="profile">
+
+        <img
+            src="profile.jpg"
+            alt="MOUAD"
+            class="profile-image"
+        >
+
+    </div>
+
+
+    <h1>
+        MOUAD
+    </h1>
+
+
+    <div class="tagline">
+        WELCOME TO MY WORLD
+    </div>
+
+
+
+    <!-- SOCIAL BUTTONS -->
+
+    <div
+        class="socials"
+        id="socials"
+    >
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            class="social"
+            id="instagramBtn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="icon instagram-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="5"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="4"
+                    />
+
+                    <circle
+                        class="dot"
+                        cx="17.5"
+                        cy="6.5"
+                        r="1.2"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div class="social-text">
+
+                <div class="social-name">
+                    INSTAGRAM
+                </div>
+
+                <div class="social-sub">
+                    Follow me
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+
+        <!-- WHATSAPP -->
+
+        <a
+            class="social"
+            id="whatsappBtn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="icon whatsapp-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        d="M12 2.2a9.7 9.7 0 0 0-8.4 14.5L2.2 21.8l5.2-1.4A9.8 9.8 0 1 0 12 2.2Zm0 17.7c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3a8 8 0 1 1 7.1 3.9Zm4.4-5.9c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.9-.1.2-.3.2-.5.1-1.2-.6-2-1.1-2.8-2.4-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1.1 1.9-.8 3 .3 1.1 1.1 2.1 2.1 2.9 1.1.9 2.1 1.3 3.3 1.7.4.1.8.1 1.1.1.3 0 .9-.4 1-.8.2-.4.2-.8.2-.9-.1-.1-.3-.2-.5-.3Z"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div class="social-text">
+
+                <div class="social-name">
+                    WHATSAPP
+                </div>
+
+                <div class="social-sub">
+                    Chat with me
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+
+        <!-- SNAPCHAT -->
+
+        <a
+            class="social"
+            id="snapchatBtn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="icon snapchat-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        d="M12 2.5c-3.4 0-5.7 2.2-5.7 5.7v2.2c0 .7-.3 1.3-.9 1.7l-1.1.7c-.4.3-.3.9.2 1.1l2 .7c.2.1.4.3.4.6.2 1 .9 1.8 1.8 2.2.4.2.7.5.9.9.3.6.8 1.2 1.4 1.5.5.3 1 .4 1.5.4h1c.5 0 1-.1 1.5-.4.6-.3 1.1-.9 1.4-1.5.2-.4.5-.7.9-.9.9-.4 1.6-1.2 1.8-2.2.1-.3.2-.5.4-.6l2-.7c.5-.2.6-.8.2-1.1l-1.1-.7c-.6-.4-.9-1-.9-1.7V8.2c0-3.5-2.3-5.7-5.7-5.7Z"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div class="social-text">
+
+                <div class="social-name">
+                    SNAPCHAT
+                </div>
+
+                <div class="social-sub">
+                    Add me
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             SPECIAL BUTTON
+        ================================================== -->
+
+        <a
+            class="special"
+            href="#"
+            id="specialBtn"
+        >
+
+            <div class="special-inner">
+
+                <div class="special-symbol">
+                    ◈
+                </div>
+
+
+                <div class="special-text">
+
+                    <div class="special-title">
+                        ENTER MY WORLD
+                    </div>
+
+                    <div class="special-sub">
+                        SOMETHING DIFFERENT
+                    </div>
+
+                </div>
+
+
+                <div class="special-arrow">
+                    ↗
+                </div>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>
+        SCAN • CONNECT • FOLLOW
+    </strong>
+
+    <br><br>
+
+    © 2026 MOUAD.
+    ALL RIGHTS RESERVED.
+
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   EDIT YOUR LINKS HERE
+========================================================= */
+
+const SOCIAL_LINKS = {
+
+    instagram:
+        "https://www.instagram.com/mouad.__.ar",
+
+    whatsapp:
+        "https://wa.me/212773109727",
+
+    snapchat:
+        "https://snapchat.com/t/w0YrArGI",
+
+    special:
+        "#"
+
+};
+
+
+/* =========================================================
+   APPLY LINKS
+========================================================= */
+
+document
+    .getElementById("instagramBtn")
+    .href =
+    SOCIAL_LINKS.instagram;
+
+
+document
+    .getElementById("whatsappBtn")
+    .href =
+    SOCIAL_LINKS.whatsapp;
+
+
+document
+    .getElementById("snapchatBtn")
+    .href =
+    SOCIAL_LINKS.snapchat;
+
+
+document
+    .getElementById("specialBtn")
+    .href =
+    SOCIAL_LINKS.special;
+
+
+
+/* =========================================================
+   3D MOUSE / TOUCH PARALLAX
+========================================================= */
+
+let targetX = 0;
+let targetY = 0;
+
+let currentX = 0;
+let currentY = 0;
+
+
+function parallax(){
+
+    currentX +=
+        (targetX - currentX) * .045;
+
+    currentY +=
+        (targetY - currentY) * .045;
+
+
+    document
+        .querySelector(".ocean")
+        .style.transform =
+        `translate3d(
+            ${currentX * .15}px,
+            ${currentY * .15}px,
+            0
+        )`;
+
+
+    document
+        .querySelector(".caustics")
+        .style.transform =
+        `translate3d(
+            ${currentX * .35}px,
+            ${currentY * .35}px,
+            0
+        ) rotate(-8deg)`;
+
+
+    requestAnimationFrame(parallax);
+}
+
+
+parallax();
+
+
+
+/* =========================================================
+   MOUSE
+========================================================= */
+
+window.addEventListener(
+    "mousemove",
+    e => {
+
+        targetX =
+            (e.clientX /
+             window.innerWidth -
+             .5) * 35;
+
+
+        targetY =
+            (e.clientY /
+             window.innerHeight -
+             .5) * 25;
+
+    }
+);
+
+
+
+/* =========================================================
+   TOUCH
+========================================================= */
+
+window.addEventListener(
+    "touchmove",
+    e => {
+
+        if(!e.touches.length)
+            return;
+
+
+        const touch =
+            e.touches[0];
+
+
+        targetX =
+            (touch.clientX /
+             window.innerWidth -
+             .5) * 25;
+
+
+        targetY =
+            (touch.clientY /
+             window.innerHeight -
+             .5) * 20;
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+   3D BUBBLES / PARTICLES
+========================================================= */
+
+const canvas =
+    document.getElementById("bubbles");
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let bubbles = [];
+
+
+function resize(){
+
+    const dpr =
+        Math.min(
+            window.devicePixelRatio || 1,
+            2
+        );
+
+
+    canvas.width =
+        window.innerWidth * dpr;
+
+    canvas.height =
+        window.innerHeight * dpr;
+
+
+    canvas.style.width =
+        window.innerWidth + "px";
+
+    canvas.style.height =
+        window.innerHeight + "px";
+
+
+    ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+}
+
+
+resize();
+
+
+window.addEventListener(
+    "resize",
+    resize
+);
+
+
+
+function createBubble(){
+
+    return{
+
+        x:
+            Math.random() *
+            window.innerWidth,
+
+        y:
+            window.innerHeight +
+            Math.random() * 100,
+
+        size:
+            Math.random() * 4 + 1,
+
+        speed:
+            Math.random() * .8 + .2,
+
+        drift:
+            (Math.random()-.5) * .4,
+
+        opacity:
+            Math.random() * .45 + .1,
+
+        life:0
+
+    };
+
+}
+
+
+for(
+    let i=0;
+    i<130;
+    i++
+){
+
+    let b =
+        createBubble();
+
+    b.y =
+        Math.random() *
+        window.innerHeight;
+
+    bubbles.push(b);
+}
+
+
+
+function animate(){
+
+    ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
+
+
+    bubbles.forEach(
+        (b,i)=>{
+
+            b.y -= b.speed;
+
+            b.x += b.drift;
+
+
+            b.life += .01;
+
+
+            if(b.y < -20){
+
+                bubbles[i] =
+                    createBubble();
+
+            }
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                b.x,
+                b.y,
+                b.size,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.strokeStyle =
+                `rgba(
+                    100,
+                    220,
+                    255,
+                    ${b.opacity}
+                )`;
+
+
+            ctx.lineWidth = .7;
+
+
+            ctx.shadowBlur = 10;
+
+            ctx.shadowColor =
+                "#27dfff";
+
+
+            ctx.stroke();
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        animate
+    );
+
+}
+
+
+animate();
+
+</script>
+
+</body>
+</html>
