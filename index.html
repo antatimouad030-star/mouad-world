@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      user-scalable=no">
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0, user-scalable=no">
 
-<meta name="theme-color" content="#02080d">
+<meta name="theme-color" content="#010509">
 
-<title>MOUAD — Welcome To My World</title>
+<title>Mouad Antari</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet">
 
 
 <style>
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 *{
     margin:0;
@@ -36,248 +30,400 @@
     box-sizing:border-box;
 }
 
-html,
+html{
+    scroll-behavior:smooth;
+}
+
 body{
+    min-height:100vh;
     width:100%;
-    min-height:100%;
 
     overflow-x:hidden;
 
-    background:#01070b;
+    background:#010509;
 
-    color:white;
+    color:#fff;
 
     font-family:"Inter",sans-serif;
 }
 
 
-/* =========================================================
-   OCEAN BACKGROUND
-========================================================= */
+/* =====================================================
+   CINEMATIC OCEAN BACKGROUND
+===================================================== */
 
-.ocean{
-
+.cinematic-bg{
     position:fixed;
 
     inset:0;
 
-    overflow:hidden;
-
     z-index:-20;
 
+    overflow:hidden;
+
     background:
-
-        radial-gradient(
-            ellipse at 50% 20%,
-            rgba(22,91,120,.28),
-            transparent 42%
-        ),
-
-        radial-gradient(
-            ellipse at 50% 75%,
-            rgba(0,112,145,.18),
-            transparent 45%
-        ),
-
         linear-gradient(
             180deg,
-            #020b11 0%,
-            #02151e 35%,
-            #010b12 70%,
-            #000305 100%
+            #010305 0%,
+            #020a10 24%,
+            #031923 47%,
+            #020c13 68%,
+            #010304 100%
         );
 }
 
 
-/* =========================================================
-   DEEP OCEAN LIGHT
-========================================================= */
+/* =====================================================
+   MOON
+===================================================== */
 
-.ocean-light{
-
+.moon{
     position:absolute;
 
-    width:800px;
-    height:800px;
+    width:210px;
+    height:210px;
 
-    left:50%;
     top:8%;
+    left:50%;
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
+
+    border-radius:50%;
 
     background:
-
         radial-gradient(
-            ellipse,
-            rgba(53,190,235,.18),
-            transparent 58%
+            circle at 35% 30%,
+            #ffffff,
+            #d9f8ff 25%,
+            #9bc9d5 58%,
+            #4f6972 100%
         );
 
-    filter:blur(25px);
+    box-shadow:
+        0 0 35px rgba(180,240,255,.75),
+        0 0 100px rgba(70,200,240,.45),
+        0 0 220px rgba(40,160,210,.22);
+
+    opacity:.9;
 
     animation:
-
-        lightPulse
-        8s ease-in-out infinite alternate;
+        moonFloat 9s ease-in-out infinite alternate;
 }
 
-
-@keyframes lightPulse{
-
-    0%{
-        transform:
-            translateX(-50%)
-            scale(.85);
-
-        opacity:.45;
-    }
-
-    100%{
-        transform:
-            translateX(-50%)
-            scale(1.15);
-
-        opacity:.8;
-    }
-}
-
-
-/* =========================================================
-   WATER CAUSTICS
-========================================================= */
-
-.caustics{
-
-    position:absolute;
-
-    inset:-20%;
-
-    opacity:.16;
-
-    background:
-
-        repeating-linear-gradient(
-            115deg,
-            transparent 0 35px,
-            rgba(100,220,255,.15) 37px,
-            transparent 45px
-        );
-
-    filter:
-        blur(10px);
-
-    transform:
-        rotate(-8deg);
-
-    animation:
-        waterMove
-        15s linear infinite;
-}
-
-
-@keyframes waterMove{
+@keyframes moonFloat{
 
     from{
         transform:
-            translate3d(-5%,0,0)
-            rotate(-8deg);
+            translateX(-50%)
+            translateY(0);
     }
 
     to{
         transform:
-            translate3d(5%,4%,0)
-            rotate(-8deg);
+            translateX(-50%)
+            translateY(12px);
     }
 }
 
 
-/* =========================================================
-   WAVES
-========================================================= */
+/* =====================================================
+   MOON GLOW
+===================================================== */
 
-.wave{
-
+.moon-glow{
     position:absolute;
+
+    width:720px;
+    height:720px;
+
+    top:-190px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(115,225,255,.20),
+            rgba(40,150,190,.08) 35%,
+            transparent 70%
+        );
+
+    filter:blur(25px);
+}
+
+
+/* =====================================================
+   CLOUDS
+===================================================== */
+
+.clouds{
+    position:absolute;
+
+    inset:0;
+
+    opacity:.42;
+
+    background:
+
+        radial-gradient(
+            ellipse at 15% 18%,
+            rgba(90,125,138,.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(70,105,120,.16),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgba(80,120,135,.12),
+            transparent 35%
+        );
+
+    filter:blur(30px);
+
+    animation:
+        cloudsMove 25s ease-in-out infinite alternate;
+}
+
+@keyframes cloudsMove{
+
+    from{
+        transform:translateX(-30px);
+    }
+
+    to{
+        transform:translateX(30px);
+    }
+}
+
+
+/* =====================================================
+   HORIZON
+===================================================== */
+
+.ocean-horizon{
+    position:absolute;
+
+    left:-10%;
+    bottom:34%;
+
+    width:120%;
+    height:130px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(0,0,0,.35)
+        );
+
+    border-top:
+        1px solid
+        rgba(110,215,240,.10);
+
+    filter:blur(3px);
+}
+
+
+/* =====================================================
+   MOON LIGHT REFLECTION
+===================================================== */
+
+.light-path{
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    width:280px;
+    height:65%;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(170,235,255,.30),
+            rgba(90,200,230,.13) 30%,
+            rgba(30,130,165,.05) 70%,
+            transparent
+        );
+
+    clip-path:
+        polygon(
+            43% 0,
+            57% 0,
+            100% 100%,
+            0 100%
+        );
+
+    filter:blur(12px);
+
+    opacity:.65;
+
+    animation:
+        lightPath 6s ease-in-out infinite alternate;
+}
+
+@keyframes lightPath{
+
+    from{
+        opacity:.35;
+        transform:
+            translateX(-50%)
+            scaleX(.8);
+    }
+
+    to{
+        opacity:.75;
+        transform:
+            translateX(-50%)
+            scaleX(1.15);
+    }
+}
+
+
+/* =====================================================
+   FOG
+===================================================== */
+
+.fog{
+    position:absolute;
+
+    width:130%;
+    height:220px;
 
     left:-15%;
 
-    width:130%;
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(90,190,210,.09),
+            transparent 70%
+        );
+
+    filter:blur(30px);
+}
+
+.fog-1{
+    bottom:27%;
+
+    animation:
+        fogMove1 16s ease-in-out infinite alternate;
+}
+
+.fog-2{
+    bottom:10%;
+
+    opacity:.55;
+
+    animation:
+        fogMove2 22s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove1{
+
+    from{
+        transform:translateX(-6%);
+    }
+
+    to{
+        transform:translateX(8%);
+    }
+}
+
+@keyframes fogMove2{
+
+    from{
+        transform:translateX(8%);
+    }
+
+    to{
+        transform:translateX(-8%);
+    }
+}
+
+
+/* =====================================================
+   WATER WAVES
+===================================================== */
+
+.water{
+    position:absolute;
+
+    left:-20%;
+
+    width:140%;
 
     border-radius:50%;
 
     border-top:
         1px solid
-        rgba(105,215,255,.22);
+        rgba(90,215,240,.15);
 
-    filter:
-        blur(1px);
+    box-shadow:
+        0 -10px 40px
+        rgba(0,120,160,.04);
+
+    filter:blur(1px);
 }
 
+.water-1{
+    height:360px;
 
-.wave.one{
-
-    height:280px;
-
-    bottom:4%;
-
-    transform:
-        rotate(-4deg);
+    bottom:-220px;
 
     animation:
-        waveOne
-        8s ease-in-out infinite alternate;
+        waterMove1 10s ease-in-out infinite alternate;
 }
 
+.water-2{
+    height:260px;
 
-.wave.two{
-
-    height:200px;
-
-    bottom:16%;
+    bottom:-130px;
 
     opacity:.55;
 
-    transform:
-        rotate(3deg);
-
     animation:
-        waveTwo
-        10s ease-in-out infinite alternate;
+        waterMove2 13s ease-in-out infinite alternate;
 }
 
+.water-3{
+    height:170px;
 
-.wave.three{
+    bottom:-50px;
 
-    height:150px;
-
-    bottom:28%;
-
-    opacity:.28;
+    opacity:.3;
 
     animation:
-        waveThree
-        12s ease-in-out infinite alternate;
+        waterMove3 17s ease-in-out infinite alternate;
 }
 
-
-@keyframes waveOne{
+@keyframes waterMove1{
 
     from{
         transform:
-            translateX(-3%)
-            rotate(-4deg);
+            translateX(-4%)
+            rotate(-3deg);
     }
 
     to{
         transform:
-            translateX(4%)
-            rotate(-2deg);
+            translateX(5%)
+            rotate(2deg);
     }
 }
 
-
-@keyframes waveTwo{
+@keyframes waterMove2{
 
     from{
         transform:
@@ -288,142 +434,107 @@ body{
     to{
         transform:
             translateX(-5%)
-            rotate(1deg);
+            rotate(-2deg);
     }
 }
 
-
-@keyframes waveThree{
+@keyframes waterMove3{
 
     from{
-        transform:
-            translateX(-4%)
-            rotate(-2deg);
+        transform:translateX(-6%);
     }
 
     to{
-        transform:
-            translateX(6%)
-            rotate(2deg);
+        transform:translateX(6%);
     }
 }
 
 
-/* =========================================================
-   3D DEPTH CIRCLES
-========================================================= */
+/* =====================================================
+   DEEP WATER GLOW
+===================================================== */
 
-.depth{
-
+.depth-glow{
     position:absolute;
+
+    width:900px;
+    height:600px;
+
+    left:50%;
+    bottom:-350px;
+
+    transform:translateX(-50%);
 
     border-radius:50%;
 
-    border:
-        1px solid
-        rgba(55,190,235,.12);
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(0,170,220,.18),
+            transparent 70%
+        );
 
-    box-shadow:
-        inset 0 0 60px
-        rgba(0,120,170,.08);
+    filter:blur(35px);
 
     animation:
-        depthFloat
-        12s ease-in-out infinite;
+        depthPulse 7s ease-in-out infinite alternate;
 }
 
+@keyframes depthPulse{
 
-.depth.one{
+    from{
+        opacity:.35;
 
-    width:700px;
-    height:700px;
-
-    left:-250px;
-    top:35%;
-}
-
-
-.depth.two{
-
-    width:480px;
-    height:480px;
-
-    right:-170px;
-    top:15%;
-
-    animation-delay:-4s;
-}
-
-
-.depth.three{
-
-    width:900px;
-    height:900px;
-
-    left:25%;
-    top:45%;
-
-    opacity:.35;
-
-    animation-delay:-8s;
-}
-
-
-@keyframes depthFloat{
-
-    0%,100%{
         transform:
-            translate3d(0,0,0)
-            rotate(0deg);
+            translateX(-50%)
+            scale(.9);
     }
 
-    50%{
+    to{
+        opacity:.8;
+
         transform:
-            translate3d(30px,-35px,0)
-            rotate(8deg);
+            translateX(-50%)
+            scale(1.15);
     }
 }
 
 
-/* =========================================================
-   DARK VIGNETTE
-========================================================= */
+/* =====================================================
+   VIGNETTE
+===================================================== */
 
-.vignette{
-
+.dark-vignette{
     position:absolute;
 
     inset:0;
 
+    pointer-events:none;
+
     background:
 
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.78),
-            transparent 35%,
-            transparent 65%,
-            rgba(0,0,0,.75)
+        radial-gradient(
+            ellipse at center,
+            transparent 30%,
+            rgba(0,0,0,.28) 65%,
+            rgba(0,0,0,.85) 100%
         ),
 
         linear-gradient(
-            0deg,
-            rgba(0,0,0,.92),
-            transparent 40%,
-            rgba(0,0,0,.25)
+            180deg,
+            rgba(0,0,0,.35),
+            transparent 30%,
+            transparent 65%,
+            rgba(0,0,0,.78)
         );
-
-    z-index:5;
-
-    pointer-events:none;
 }
 
 
-/* =========================================================
-   BUBBLES
-========================================================= */
+/* =====================================================
+   PARTICLES
+===================================================== */
 
-#bubbles{
-
+#particles{
     position:fixed;
 
     inset:0;
@@ -431,40 +542,40 @@ body{
     width:100%;
     height:100%;
 
-    z-index:1;
+    z-index:2;
 
     pointer-events:none;
 }
 
 
-/* =========================================================
-   MAIN
-========================================================= */
+/* =====================================================
+   PAGE
+===================================================== */
 
 .page{
-
     position:relative;
 
     z-index:10;
 
-    min-height:100svh;
-
-    display:flex;
-
-    flex-direction:column;
+    min-height:100vh;
 }
 
 
-/* =========================================================
-   NAV
-========================================================= */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-nav{
+.nav{
+    position:fixed;
 
-    height:75px;
+    top:22px;
+    left:50%;
 
-    padding:
-        0 6%;
+    transform:translateX(-50%);
+
+    width:min(1100px,92%);
+
+    height:66px;
 
     display:flex;
 
@@ -472,20 +583,32 @@ nav{
 
     justify-content:space-between;
 
-    background:
-        rgba(0,7,12,.22);
+    padding:0 24px;
 
-    backdrop-filter:
-        blur(15px);
-
-    border-bottom:
+    border:
         1px solid
-        rgba(100,210,240,.09);
+        rgba(120,225,255,.13);
+
+    border-radius:22px;
+
+    background:
+        rgba(2,13,18,.48);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.4);
+
+    z-index:100;
 }
 
 
-.logo{
+/* LOGO */
 
+.logo{
     display:flex;
 
     align-items:center;
@@ -494,245 +617,326 @@ nav{
 
     font-family:Cinzel,serif;
 
+    font-size:13px;
+
     font-weight:700;
 
     letter-spacing:4px;
 }
 
-
-.logo-orb{
-
-    width:30px;
-    height:30px;
+.logo-dot{
+    width:10px;
+    height:10px;
 
     border-radius:50%;
 
-    border:
-        1px solid
-        rgba(120,225,255,.9);
+    background:#72e9ff;
 
     box-shadow:
-
-        0 0 15px
-        rgba(0,190,255,.7),
-
-        inset 0 0 12px
-        rgba(0,190,255,.5);
-
-    position:relative;
+        0 0 12px #35d9ff,
+        0 0 28px rgba(0,210,255,.8);
 }
 
 
-.logo-orb::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:#8eeaff;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    box-shadow:
-        0 0 15px #3edcff;
-}
-
+/* NAV LINKS */
 
 .nav-links{
-
     display:flex;
 
-    gap:32px;
+    gap:28px;
 
     list-style:none;
 }
 
-
 .nav-links a{
-
     color:
-        rgba(255,255,255,.65);
+        rgba(255,255,255,.55);
 
     text-decoration:none;
 
-    font-size:11px;
+    font-size:9px;
 
     letter-spacing:2px;
 
     transition:.3s;
 }
 
-
 .nav-links a:hover{
-
-    color:#6eeaff;
+    color:#7deaff;
 
     text-shadow:
         0 0 15px
-        #00cfff;
+        rgba(0,220,255,.7);
 }
 
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero{
+    width:min(1100px,92%);
 
-    flex:1;
-
-    width:
-        min(680px,92%);
+    min-height:100vh;
 
     margin:auto;
 
-    padding:
-        45px 0 35px;
+    display:grid;
 
-    display:flex;
-
-    flex-direction:column;
+    grid-template-columns:.95fr 1.05fr;
 
     align-items:center;
 
-    text-align:center;
+    gap:65px;
+
+    padding:
+        130px 0 70px;
 }
 
 
-/* =========================================================
-   PROFILE
-========================================================= */
+/* =====================================================
+   IMAGE
+===================================================== */
 
-.profile{
+.visual{
+    position:relative;
 
-    width:105px;
-    height:105px;
+    display:flex;
 
-    padding:3px;
+    justify-content:center;
+
+    align-items:center;
+
+    transition:
+        transform .15s linear;
+}
+
+.visual::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
 
     border-radius:50%;
 
     background:
-        conic-gradient(
-            from 0deg,
-            #5de8ff,
-            #006d91,
-            #b4f5ff,
-            #007eaa,
-            #5de8ff
+        radial-gradient(
+            circle,
+            rgba(20,198,241,.22),
+            transparent 68%
+        );
+
+    filter:blur(25px);
+
+    animation:
+        photoGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes photoGlow{
+
+    from{
+        transform:scale(.9);
+
+        opacity:.5;
+    }
+
+    to{
+        transform:scale(1.12);
+
+        opacity:1;
+    }
+}
+
+
+/* IMAGE FRAME */
+
+.photo-frame{
+    position:relative;
+
+    width:min(440px,75vw);
+
+    aspect-ratio:4/5;
+
+    padding:5px;
+
+    border-radius:
+        38px 38px 125px 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(155,239,255,.95),
+            rgba(0,96,126,.55),
+            rgba(255,255,255,.08)
         );
 
     box-shadow:
 
-        0 0 25px
-        rgba(0,205,255,.5),
+        0 0 45px
+        rgba(0,208,255,.25),
 
-        0 0 70px
-        rgba(0,160,220,.22);
+        0 35px 100px
+        rgba(0,0,0,.75);
 
-    animation:
-        profileRotate
-        7s linear infinite;
+    transform:rotate(-2deg);
+
+    transition:
+        transform .5s ease;
+}
+
+.photo-frame:hover{
+    transform:
+        rotate(0deg)
+        scale(1.025);
 }
 
 
+/* PROFILE */
+
 .profile-image{
+    display:block;
 
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-    border-radius:50%;
+    object-position:center;
 
-    display:block;
+    border-radius:
+        34px 34px 121px 34px;
+
+    background:#061219;
 
     border:
-        3px solid
-        #031017;
+        2px solid
+        rgba(2,12,17,.8);
 }
 
 
-@keyframes profileRotate{
+/* SHINE */
 
-    50%{
-        box-shadow:
+.photo-shine{
+    position:absolute;
 
-            0 0 38px
-            rgba(0,210,255,.75),
+    inset:5px;
 
-            0 0 90px
-            rgba(0,160,220,.3);
-    }
+    border-radius:
+        34px 34px 121px 34px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.16),
+            transparent 30%,
+            transparent 70%,
+            rgba(100,220,255,.08)
+        );
+
+    pointer-events:none;
 }
 
 
-/* =========================================================
-   TITLE
-========================================================= */
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+    position:relative;
+
+    transition:
+        transform .15s linear;
+}
+
+
+.eyebrow{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#71ddf5;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    margin-bottom:18px;
+}
+
+.eyebrow-line{
+    width:38px;
+
+    height:1px;
+
+    background:#55dfff;
+
+    box-shadow:
+        0 0 12px #31d9ff;
+}
+
 
 h1{
-
-    margin-top:18px;
-
     font-family:Cinzel,serif;
 
     font-size:
-        clamp(40px,8vw,68px);
+        clamp(48px,7vw,88px);
 
-    letter-spacing:10px;
+    line-height:.94;
+
+    letter-spacing:4px;
 
     font-weight:700;
 
     text-shadow:
+        0 15px 55px
+        rgba(0,0,0,.9);
+}
 
+.name-accent{
+    color:#76e8ff;
+
+    text-shadow:
         0 0 25px
-        rgba(40,205,255,.25),
-
-        0 8px 35px
-        #000;
+        rgba(0,210,255,.3);
 }
 
 
-.tagline{
+.subtitle{
+    max-width:490px;
 
-    margin-top:4px;
+    margin-top:22px;
 
-    font-size:10px;
+    color:
+        rgba(255,255,255,.52);
 
-    letter-spacing:5px;
+    font-size:13px;
 
-    color:#79ddf5;
+    line-height:1.85;
 }
 
 
-/* =========================================================
-   SOCIAL BUTTONS
-========================================================= */
+/* =====================================================
+   SOCIAL GRID
+===================================================== */
 
 .socials{
-
-    width:100%;
-
-    margin-top:38px;
+    margin-top:32px;
 
     display:grid;
 
-    gap:13px;
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
 }
 
 
-.social{
+/* CARD */
 
+.social{
     position:relative;
 
     min-height:78px;
@@ -741,57 +945,45 @@ h1{
 
     align-items:center;
 
-    gap:18px;
+    gap:14px;
 
-    padding:
-        13px 20px;
-
-    text-decoration:none;
-
-    color:white;
-
-    border:
-        1px solid
-        rgba(92,211,244,.3);
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            105deg,
-            rgba(8,30,38,.68),
-            rgba(2,11,16,.42)
-        );
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-
-    box-shadow:
-
-        inset 0 1px
-        rgba(255,255,255,.07),
-
-        0 15px 35px
-        rgba(0,0,0,.35);
+    padding:14px 16px;
 
     overflow:hidden;
 
+    color:#fff;
+
+    text-decoration:none;
+
+    border:
+        1px solid
+        rgba(118,222,246,.14);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(11,34,42,.68),
+            rgba(3,12,17,.56)
+        );
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.18);
+
     transition:
-
-        transform .35s
-        cubic-bezier(.2,.8,.2,1),
-
+        transform .35s,
         border-color .35s,
-
         box-shadow .35s;
 }
 
 
 .social::before{
-
     content:"";
 
     position:absolute;
@@ -800,53 +992,40 @@ h1{
 
     background:
         linear-gradient(
-            105deg,
-            transparent 20%,
-            rgba(72,216,255,.15),
-            transparent 70%
+            110deg,
+            transparent,
+            rgba(94,222,255,.13),
+            transparent
         );
 
     transform:
-        translateX(-100%);
+        translateX(-120%);
 
     transition:.7s;
 }
 
-
 .social:hover{
-
-    transform:
-        translateY(-4px)
-        scale(1.025);
+    transform:translateY(-5px);
 
     border-color:
-        rgba(85,220,255,.85);
+        rgba(105,226,255,.55);
 
     box-shadow:
-
-        0 0 30px
-        rgba(0,200,255,.22),
-
-        0 20px 45px
-        rgba(0,0,0,.55);
+        0 20px 50px
+        rgba(0,190,235,.14);
 }
-
 
 .social:hover::before{
-
     transform:
-        translateX(100%);
+        translateX(120%);
 }
 
 
-/* =========================================================
-   ICON
-========================================================= */
+/* ICON */
 
-.icon{
-
-    width:47px;
-    height:47px;
+.social-icon{
+    width:42px;
+    height:42px;
 
     flex-shrink:0;
 
@@ -854,252 +1033,142 @@ h1{
 
     place-items:center;
 
-    border-radius:14px;
+    border-radius:13px;
 
     background:
         rgba(255,255,255,.055);
 
     border:
         1px solid
-        rgba(100,220,255,.2);
+        rgba(120,220,245,.15);
+
+    font-size:18px;
 
     transition:.3s;
 }
 
-
-.icon svg{
-
-    width:25px;
-    height:25px;
-}
-
-
-.social:hover .icon{
-
+.social:hover .social-icon{
     background:
-        rgba(0,180,230,.12);
-
-    border-color:
-        rgba(80,220,255,.6);
+        rgba(60,205,240,.12);
 
     box-shadow:
         0 0 20px
-        rgba(0,190,255,.2);
+        rgba(0,210,255,.16);
 }
 
 
-/* =========================================================
-   INSTAGRAM
-========================================================= */
+/* TEXT */
 
-.instagram-icon svg{
-
-    fill:none;
-
-    stroke:white;
-
-    stroke-width:1.8;
+.social-info{
+    min-width:0;
 }
-
-
-.instagram-icon .dot{
-
-    fill:white;
-
-    stroke:none;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.whatsapp-icon svg{
-
-    fill:white;
-}
-
-
-/* =========================================================
-   SNAPCHAT
-========================================================= */
-
-.snapchat-icon svg{
-
-    fill:white;
-}
-
-
-/* =========================================================
-   TEXT
-========================================================= */
-
-.social-text{
-
-    flex:1;
-
-    text-align:left;
-}
-
 
 .social-name{
-
     font-family:Cinzel,serif;
 
-    font-size:14px;
+    font-size:11px;
 
     font-weight:700;
 
-    letter-spacing:2px;
+    letter-spacing:1.7px;
 }
 
-
-.social-sub{
-
+.social-description{
     margin-top:4px;
 
     color:
-        rgba(255,255,255,.48);
+        rgba(255,255,255,.38);
 
-    font-size:11px;
+    font-size:9px;
 }
 
+.social-arrow{
+    margin-left:auto;
 
-.arrow{
+    color:#6fe6ff;
 
-    color:#69ddff;
-
-    font-size:20px;
+    font-size:18px;
 
     transition:.3s;
 }
 
-
-.social:hover .arrow{
-
+.social:hover .social-arrow{
     transform:
-        translateX(5px);
+        translateX(4px);
 }
 
 
-/* =========================================================
-   INSANE SPECIAL BUTTON
-========================================================= */
+/* =====================================================
+   CONTACT
+===================================================== */
 
-.special{
-
+.contact{
     position:relative;
 
-    margin-top:5px;
-
-    min-height:105px;
-
-    border-radius:25px;
-
-    padding:2px;
-
-    text-decoration:none;
-
-    overflow:hidden;
-
-    background:
-        conic-gradient(
-            from 0deg,
-            #00d9ff,
-            #0065ff,
-            #8a2cff,
-            #00d9ff
-        );
-
-    animation:
-        specialRotate
-        5s linear infinite;
-
-    box-shadow:
-
-        0 0 35px
-        rgba(0,180,255,.2);
-}
-
-
-@keyframes specialRotate{
-
-    to{
-        filter:
-            hue-rotate(360deg);
-    }
-}
-
-
-.special-inner{
-
-    position:relative;
+    margin-top:13px;
 
     width:100%;
-    height:100%;
 
-    min-height:101px;
-
-    border-radius:23px;
+    min-height:82px;
 
     display:flex;
 
     align-items:center;
 
-    padding:
-        18px 22px;
-
-    background:
-
-        radial-gradient(
-            circle at 15% 50%,
-            rgba(0,210,255,.15),
-            transparent 30%
-        ),
-
-        linear-gradient(
-            110deg,
-            rgba(4,15,25,.96),
-            rgba(5,5,18,.94)
-        );
+    padding:15px 20px;
 
     overflow:hidden;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            105deg,
+            rgba(39,193,225,.16),
+            rgba(5,20,28,.78)
+        );
+
+    border:
+        1px solid
+        rgba(99,226,250,.45);
+
+    box-shadow:
+        0 0 35px
+        rgba(0,190,230,.08);
+
+    transition:.4s;
 }
 
-
-.special-inner::before{
-
+.contact::before{
     content:"";
 
     position:absolute;
 
-    width:160px;
-    height:160px;
+    width:180px;
+    height:180px;
 
-    right:-30px;
-    top:-50px;
+    right:-50px;
+    top:-60px;
 
     border-radius:50%;
 
     border:
         1px solid
-        rgba(120,230,255,.35);
+        rgba(110,232,255,.25);
 
     box-shadow:
-
         0 0 40px
-        rgba(0,210,255,.15),
-
-        inset 0 0 30px
-        rgba(0,210,255,.08);
+        rgba(0,210,255,.15);
 
     animation:
-        specialOrb
-        4s ease-in-out infinite;
+        contactOrb 5s ease-in-out infinite;
 }
 
-
-@keyframes specialOrb{
+@keyframes contactOrb{
 
     50%{
         transform:
@@ -1108,250 +1177,266 @@ h1{
     }
 }
 
+.contact:hover{
+    transform:translateY(-4px);
 
-.special-symbol{
+    border-color:#76eaff;
 
-    width:50px;
-    height:50px;
+    box-shadow:
+        0 0 40px
+        rgba(0,210,255,.2);
+}
+
+.contact-icon{
+    width:45px;
+    height:45px;
 
     display:grid;
+
     place-items:center;
 
-    border-radius:50%;
+    flex-shrink:0;
+
+    border-radius:14px;
+
+    background:
+        rgba(42,207,236,.1);
 
     border:
         1px solid
-        rgba(100,230,255,.6);
+        rgba(103,228,248,.4);
 
-    color:#8beeff;
-
-    font-size:22px;
-
-    box-shadow:
-        0 0 25px
-        rgba(0,210,255,.3);
-}
-
-
-.special-text{
-
-    margin-left:17px;
-
-    text-align:left;
+    font-size:20px;
 
     z-index:2;
 }
 
+.contact-info{
+    margin-left:15px;
 
-.special-title{
-
-    font-family:Cinzel,serif;
-
-    font-size:14px;
-
-    letter-spacing:3px;
-
-    color:#d8faff;
+    z-index:2;
 }
 
+.contact-title{
+    font-family:Cinzel,serif;
 
-.special-sub{
+    font-size:12px;
 
+    letter-spacing:2px;
+}
+
+.contact-number{
     margin-top:5px;
+
+    color:
+        rgba(255,255,255,.42);
 
     font-size:10px;
 
-    letter-spacing:2px;
-
-    color:
-        rgba(170,235,255,.5);
+    letter-spacing:1px;
 }
 
-
-.special-arrow{
-
+.contact-arrow{
     margin-left:auto;
 
-    font-size:24px;
+    color:#7cecff;
 
-    color:#79eaff;
+    font-size:22px;
 
     z-index:2;
-
-    transition:.3s;
 }
 
 
-.special:hover{
-
-    transform:
-        scale(1.035);
-
-    box-shadow:
-
-        0 0 45px
-        rgba(0,200,255,.4),
-
-        0 0 100px
-        rgba(90,40,255,.15);
-}
-
-
-.special:hover
-.special-arrow{
-
-    transform:
-        translateX(7px);
-}
-
-
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
-footer{
+.footer{
+    padding:
+        25px 20px 35px;
 
     text-align:center;
 
-    padding:
-        25px 20px;
-
     color:
-        rgba(255,255,255,.32);
+        rgba(255,255,255,.28);
 
-    font-size:9px;
+    font-size:8px;
 
     letter-spacing:3px;
 }
 
-
-footer strong{
-
-    color:#71ddf5;
+.footer strong{
+    color:#75e5fa;
 
     font-weight:500;
-
-    text-shadow:
-        0 0 12px
-        rgba(0,200,255,.4);
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
-@media(max-width:700px){
+@media(max-width:850px){
 
-    nav{
+    .nav{
+        top:12px;
 
-        height:62px;
+        height:58px;
 
-        padding:
-            0 20px;
+        width:92%;
+
+        padding:0 18px;
     }
 
-
     .nav-links{
-
         display:none;
     }
 
 
-    .ocean-light{
-
-        width:600px;
-        height:600px;
-
-        top:10%;
-    }
-
-
     .hero{
+        width:88%;
 
-        padding-top:32px;
+        min-height:auto;
 
-        width:90%;
+        display:flex;
+
+        flex-direction:column;
+
+        gap:42px;
+
+        padding:
+            105px 0 45px;
     }
 
 
-    .profile{
+    .visual{
+        width:100%;
+    }
 
-        width:88px;
-        height:88px;
+
+    .photo-frame{
+        width:min(360px,82vw);
+
+        aspect-ratio:4/5;
+    }
+
+
+    .content{
+        width:100%;
+
+        text-align:center;
+    }
+
+
+    .eyebrow{
+        justify-content:center;
     }
 
 
     h1{
-
-        font-size:38px;
-
-        letter-spacing:6px;
+        font-size:
+            clamp(44px,12vw,70px);
     }
 
 
-    .tagline{
-
-        font-size:8px;
-
-        letter-spacing:3px;
-    }
-
-
-    .social{
-
-        min-height:70px;
-
-        padding:
-            10px 14px;
-    }
-
-
-    .icon{
-
-        width:42px;
-        height:42px;
-    }
-
-
-    .social-name{
+    .subtitle{
+        margin-left:auto;
+        margin-right:auto;
 
         font-size:12px;
     }
 
 
-    .social-sub{
+    .socials{
+        grid-template-columns:1fr;
 
-        font-size:10px;
+        text-align:left;
     }
 
 
-    .special{
-
-        min-height:92px;
+    .contact{
+        text-align:left;
     }
 
 
-    .special-inner{
+    .moon{
+        width:145px;
+        height:145px;
 
-        min-height:88px;
-
-        padding:
-            15px;
+        top:8%;
     }
 
 
-    footer{
-
-        padding-bottom:18px;
+    .light-path{
+        width:190px;
     }
-
 }
 
 
-/* =========================================================
+/* =====================================================
+   SMALL IPHONE
+===================================================== */
+
+@media(max-width:430px){
+
+    .logo{
+        font-size:10px;
+
+        letter-spacing:3px;
+    }
+
+
+    .hero{
+        width:89%;
+
+        gap:35px;
+
+        padding-top:96px;
+    }
+
+
+    .photo-frame{
+        width:82vw;
+
+        max-width:330px;
+    }
+
+
+    h1{
+        font-size:44px;
+
+        letter-spacing:2px;
+    }
+
+
+    .subtitle{
+        font-size:11px;
+
+        line-height:1.7;
+    }
+
+
+    .social{
+        min-height:72px;
+    }
+
+
+    .social-icon{
+        width:40px;
+        height:40px;
+    }
+
+
+    .moon{
+        width:115px;
+        height:115px;
+    }
+}
+
+
+/* =====================================================
    REDUCED MOTION
-========================================================= */
+===================================================== */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1363,7 +1448,6 @@ footer strong{
 
         transition-duration:.01ms !important;
     }
-
 }
 
 </style>
@@ -1373,53 +1457,61 @@ footer strong{
 <body>
 
 
-<!-- =======================================================
-     CINEMATIC OCEAN
-======================================================= -->
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-<div class="ocean">
+<div class="cinematic-bg">
 
-    <div class="ocean-light"></div>
+    <div class="moon"></div>
 
-    <div class="caustics"></div>
+    <div class="moon-glow"></div>
 
-    <div class="depth one"></div>
+    <div class="clouds"></div>
 
-    <div class="depth two"></div>
+    <div class="ocean-horizon"></div>
 
-    <div class="depth three"></div>
+    <div class="light-path"></div>
 
-    <div class="wave one"></div>
+    <div class="fog fog-1"></div>
 
-    <div class="wave two"></div>
+    <div class="fog fog-2"></div>
 
-    <div class="wave three"></div>
+    <div class="water water-1"></div>
 
-    <div class="vignette"></div>
+    <div class="water water-2"></div>
+
+    <div class="water water-3"></div>
+
+    <div class="depth-glow"></div>
+
+    <div class="dark-vignette"></div>
 
 </div>
 
 
-<canvas id="bubbles"></canvas>
+<canvas id="particles"></canvas>
 
 
 
-<!-- =======================================================
-     WEBSITE
-======================================================= -->
+<!-- =====================================================
+     PAGE
+===================================================== -->
 
 <div class="page">
 
 
-<!-- NAVIGATION -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-<nav>
+<nav class="nav">
 
     <div class="logo">
 
-        <div class="logo-orb"></div>
+        <span class="logo-dot"></span>
 
-        MOUAD
+        MOUAD ANTARI
 
     </div>
 
@@ -1433,14 +1525,14 @@ footer strong{
         </li>
 
         <li>
-            <a href="#about">
-                ABOUT
+            <a href="#socials">
+                SOCIALS
             </a>
         </li>
 
         <li>
-            <a href="#socials">
-                SOCIALS
+            <a href="#contact">
+                CONTACT
             </a>
         </li>
 
@@ -1450,256 +1542,246 @@ footer strong{
 
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<main class="hero">
+<section class="hero">
 
 
-    <!-- =================================================
-         YOUR PROFILE PHOTO
+    <!-- PROFILE IMAGE -->
 
-         Put:
+    <div class="visual">
 
-         profile.jpg
+        <div class="photo-frame">
 
-         in the same folder as index.html
-    ================================================== -->
+            <!--
+                IMPORTANT:
 
-    <div class="profile">
+                Put your photo next to index.html
+                and name it:
 
-        <img
-            src="profile.jpg"
-            alt="MOUAD"
-            class="profile-image"
-        >
+                profile.jpg
+            -->
+
+            <img
+                src="profile.jpg"
+                alt="Mouad Antari"
+                class="profile-image"
+            >
+
+            <div class="photo-shine"></div>
+
+        </div>
 
     </div>
 
 
-    <h1>
-        MOUAD
-    </h1>
+
+    <!-- CONTENT -->
+
+    <div class="content">
 
 
-    <div class="tagline">
-        WELCOME TO MY WORLD
-    </div>
+        <div class="eyebrow">
+
+            <span class="eyebrow-line"></span>
+
+            WELCOME TO MY WORLD
+
+        </div>
+
+
+        <h1>
+
+            MOUAD
+
+            <br>
+
+            <span class="name-accent">
+                ANTARI
+            </span>
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            Welcome to my world.
+            Connect with me, follow my journey
+            and discover more through my socials.
+
+        </p>
 
 
 
-    <!-- SOCIAL BUTTONS -->
+        <!-- SOCIAL BUTTONS -->
 
-    <div
-        class="socials"
-        id="socials"
-    >
-
-
-        <!-- INSTAGRAM -->
-
-        <a
-            class="social"
-            id="instagramBtn"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div
+            class="socials"
+            id="socials"
         >
 
-            <div class="icon instagram-icon">
 
-                <svg viewBox="0 0 24 24">
+            <!-- INSTAGRAM -->
 
-                    <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="5"
-                    />
+            <a
+                class="social"
+                id="instagramBtn"
+                href="#"
+                target="_blank"
+                rel="noopener"
+            >
 
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="4"
-                    />
-
-                    <circle
-                        class="dot"
-                        cx="17.5"
-                        cy="6.5"
-                        r="1.2"
-                    />
-
-                </svg>
-
-            </div>
-
-
-            <div class="social-text">
-
-                <div class="social-name">
-                    INSTAGRAM
+                <div class="social-icon">
+                    ◎
                 </div>
 
-                <div class="social-sub">
-                    Follow me
-                </div>
+                <div class="social-info">
 
-            </div>
-
-
-            <div class="arrow">
-                →
-            </div>
-
-        </a>
-
-
-
-        <!-- WHATSAPP -->
-
-        <a
-            class="social"
-            id="whatsappBtn"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-
-            <div class="icon whatsapp-icon">
-
-                <svg viewBox="0 0 24 24">
-
-                    <path
-                        d="M12 2.2a9.7 9.7 0 0 0-8.4 14.5L2.2 21.8l5.2-1.4A9.8 9.8 0 1 0 12 2.2Zm0 17.7c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3a8 8 0 1 1 7.1 3.9Zm4.4-5.9c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.9-.1.2-.3.2-.5.1-1.2-.6-2-1.1-2.8-2.4-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1.1 1.9-.8 3 .3 1.1 1.1 2.1 2.1 2.9 1.1.9 2.1 1.3 3.3 1.7.4.1.8.1 1.1.1.3 0 .9-.4 1-.8.2-.4.2-.8.2-.9-.1-.1-.3-.2-.5-.3Z"
-                    />
-
-                </svg>
-
-            </div>
-
-
-            <div class="social-text">
-
-                <div class="social-name">
-                    WHATSAPP
-                </div>
-
-                <div class="social-sub">
-                    Chat with me
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                →
-            </div>
-
-        </a>
-
-
-
-        <!-- SNAPCHAT -->
-
-        <a
-            class="social"
-            id="snapchatBtn"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-
-            <div class="icon snapchat-icon">
-
-                <svg viewBox="0 0 24 24">
-
-                    <path
-                        d="M12 2.5c-3.4 0-5.7 2.2-5.7 5.7v2.2c0 .7-.3 1.3-.9 1.7l-1.1.7c-.4.3-.3.9.2 1.1l2 .7c.2.1.4.3.4.6.2 1 .9 1.8 1.8 2.2.4.2.7.5.9.9.3.6.8 1.2 1.4 1.5.5.3 1 .4 1.5.4h1c.5 0 1-.1 1.5-.4.6-.3 1.1-.9 1.4-1.5.2-.4.5-.7.9-.9.9-.4 1.6-1.2 1.8-2.2.1-.3.2-.5.4-.6l2-.7c.5-.2.6-.8.2-1.1l-1.1-.7c-.6-.4-.9-1-.9-1.7V8.2c0-3.5-2.3-5.7-5.7-5.7Z"
-                    />
-
-                </svg>
-
-            </div>
-
-
-            <div class="social-text">
-
-                <div class="social-name">
-                    SNAPCHAT
-                </div>
-
-                <div class="social-sub">
-                    Add me
-                </div>
-
-            </div>
-
-
-            <div class="arrow">
-                →
-            </div>
-
-        </a>
-
-
-
-        <!-- =================================================
-             SPECIAL BUTTON
-        ================================================== -->
-
-        <a
-            class="special"
-            href="#"
-            id="specialBtn"
-        >
-
-            <div class="special-inner">
-
-                <div class="special-symbol">
-                    ◈
-                </div>
-
-
-                <div class="special-text">
-
-                    <div class="special-title">
-                        ENTER MY WORLD
+                    <div class="social-name">
+                        INSTAGRAM
                     </div>
 
-                    <div class="special-sub">
-                        SOMETHING DIFFERENT
+                    <div class="social-description">
+                        Follow my journey
+                    </div>
+
+                </div>
+
+                <div class="social-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                class="social"
+                id="whatsappBtn"
+                href="#"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="social-icon">
+                    ◉
+                </div>
+
+                <div class="social-info">
+
+                    <div class="social-name">
+                        WHATSAPP
+                    </div>
+
+                    <div class="social-description">
+                        Chat with me
+                    </div>
+
+                </div>
+
+                <div class="social-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <!-- SNAPCHAT -->
+
+            <a
+                class="social"
+                id="snapchatBtn"
+                href="#"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="social-icon">
+                    ▢
+                </div>
+
+                <div class="social-info">
+
+                    <div class="social-name">
+                        SNAPCHAT
+                    </div>
+
+                    <div class="social-description">
+                        Add me
+                    </div>
+
+                </div>
+
+                <div class="social-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <!-- CONTACT -->
+
+            <a
+                class="contact"
+                id="contact"
+                href="#"
+            >
+
+                <div class="contact-icon">
+                    ✆
+                </div>
+
+
+                <div class="contact-info">
+
+                    <div class="contact-title">
+                        CONTACT ME
+                    </div>
+
+                    <div class="contact-number">
+                        +212 773 109 727
                     </div>
 
                 </div>
 
 
-                <div class="special-arrow">
+                <div class="contact-arrow">
                     ↗
                 </div>
 
-            </div>
+            </a>
 
-        </a>
 
+        </div>
 
     </div>
 
-</main>
+</section>
 
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-<footer>
+<footer class="footer">
 
     <strong>
-        SCAN • CONNECT • FOLLOW
+        CONNECT • DISCOVER • FOLLOW
     </strong>
 
     <br><br>
 
-    © 2026 MOUAD.
+    © 2026 MOUAD ANTARI
+
+    <br>
+
     ALL RIGHTS RESERVED.
 
 </footer>
@@ -1711,11 +1793,12 @@ footer strong{
 
 <script>
 
-/* =========================================================
-   EDIT YOUR LINKS HERE
-========================================================= */
+/* =====================================================
+   🔗 YOUR LINKS
+   EDIT ONLY THIS SECTION
+===================================================== */
 
-const SOCIAL_LINKS = {
+const LINKS = {
 
     instagram:
         "https://www.instagram.com/mouad.__.ar",
@@ -1726,163 +1809,55 @@ const SOCIAL_LINKS = {
     snapchat:
         "https://snapchat.com/t/w0YrArGI",
 
-    special:
-        "#"
+    contact:
+        "https://wa.me/212773109727"
 
 };
 
 
-/* =========================================================
+/* =====================================================
    APPLY LINKS
-========================================================= */
+===================================================== */
 
 document
     .getElementById("instagramBtn")
     .href =
-    SOCIAL_LINKS.instagram;
+    LINKS.instagram;
 
 
 document
     .getElementById("whatsappBtn")
     .href =
-    SOCIAL_LINKS.whatsapp;
+    LINKS.whatsapp;
 
 
 document
     .getElementById("snapchatBtn")
     .href =
-    SOCIAL_LINKS.snapchat;
+    LINKS.snapchat;
 
 
 document
-    .getElementById("specialBtn")
+    .getElementById("contact")
     .href =
-    SOCIAL_LINKS.special;
+    LINKS.contact;
 
 
 
-/* =========================================================
-   3D MOUSE / TOUCH PARALLAX
-========================================================= */
-
-let targetX = 0;
-let targetY = 0;
-
-let currentX = 0;
-let currentY = 0;
-
-
-function parallax(){
-
-    currentX +=
-        (targetX - currentX) * .045;
-
-    currentY +=
-        (targetY - currentY) * .045;
-
-
-    document
-        .querySelector(".ocean")
-        .style.transform =
-        `translate3d(
-            ${currentX * .15}px,
-            ${currentY * .15}px,
-            0
-        )`;
-
-
-    document
-        .querySelector(".caustics")
-        .style.transform =
-        `translate3d(
-            ${currentX * .35}px,
-            ${currentY * .35}px,
-            0
-        ) rotate(-8deg)`;
-
-
-    requestAnimationFrame(parallax);
-}
-
-
-parallax();
-
-
-
-/* =========================================================
-   MOUSE
-========================================================= */
-
-window.addEventListener(
-    "mousemove",
-    e => {
-
-        targetX =
-            (e.clientX /
-             window.innerWidth -
-             .5) * 35;
-
-
-        targetY =
-            (e.clientY /
-             window.innerHeight -
-             .5) * 25;
-
-    }
-);
-
-
-
-/* =========================================================
-   TOUCH
-========================================================= */
-
-window.addEventListener(
-    "touchmove",
-    e => {
-
-        if(!e.touches.length)
-            return;
-
-
-        const touch =
-            e.touches[0];
-
-
-        targetX =
-            (touch.clientX /
-             window.innerWidth -
-             .5) * 25;
-
-
-        targetY =
-            (touch.clientY /
-             window.innerHeight -
-             .5) * 20;
-
-    },
-    {
-        passive:true
-    }
-);
-
-
-
-/* =========================================================
-   3D BUBBLES / PARTICLES
-========================================================= */
+/* =====================================================
+   PARTICLE SYSTEM
+===================================================== */
 
 const canvas =
-    document.getElementById("bubbles");
+    document.getElementById("particles");
 
 const ctx =
     canvas.getContext("2d");
 
+let particles = [];
 
-let bubbles = [];
 
-
-function resize(){
+function resizeCanvas(){
 
     const dpr =
         Math.min(
@@ -1916,66 +1891,72 @@ function resize(){
 }
 
 
-resize();
+resizeCanvas();
 
 
 window.addEventListener(
     "resize",
-    resize
+    resizeCanvas
 );
 
 
 
-function createBubble(){
+function createParticle(){
 
-    return{
+    return {
 
         x:
-            Math.random() *
-            window.innerWidth,
+            Math.random()
+            * window.innerWidth,
 
         y:
-            window.innerHeight +
-            Math.random() * 100,
+            Math.random()
+            * window.innerHeight,
 
         size:
-            Math.random() * 4 + 1,
+            Math.random()
+            * 2.2 + .35,
 
         speed:
-            Math.random() * .8 + .2,
+            Math.random()
+            * .42 + .06,
 
         drift:
-            (Math.random()-.5) * .4,
+            (Math.random() - .5)
+            * .3,
 
-        opacity:
-            Math.random() * .45 + .1,
+        alpha:
+            Math.random()
+            * .45 + .08,
 
-        life:0
+        pulse:
+            Math.random()
+            * Math.PI * 2
 
     };
 
 }
 
 
+
 for(
-    let i=0;
-    i<130;
+    let i = 0;
+    i < 130;
     i++
 ){
 
-    let b =
-        createBubble();
+    particles.push(
+        createParticle()
+    );
 
-    b.y =
-        Math.random() *
-        window.innerHeight;
-
-    bubbles.push(b);
 }
 
 
+/* =====================================================
+   PARTICLE ANIMATION
+===================================================== */
 
-function animate(){
+function animateParticles(){
 
     ctx.clearRect(
         0,
@@ -1985,69 +1966,218 @@ function animate(){
     );
 
 
-    bubbles.forEach(
-        (b,i)=>{
+    particles.forEach(
+        (p,index)=>{
 
-            b.y -= b.speed;
+            p.y -= p.speed;
 
-            b.x += b.drift;
+            p.x += p.drift;
+
+            p.pulse += .025;
 
 
-            b.life += .01;
+            if(p.y < -10){
 
+                particles[index] =
+                    createParticle();
 
-            if(b.y < -20){
-
-                bubbles[i] =
-                    createBubble();
-
+                particles[index].y =
+                    window.innerHeight + 10;
             }
+
+
+            const opacity =
+                p.alpha +
+                Math.sin(p.pulse) * .1;
 
 
             ctx.beginPath();
 
 
             ctx.arc(
-                b.x,
-                b.y,
-                b.size,
+                p.x,
+                p.y,
+                p.size,
                 0,
-                Math.PI*2
+                Math.PI * 2
             );
 
 
-            ctx.strokeStyle =
+            ctx.fillStyle =
                 `rgba(
-                    100,
+                    108,
                     220,
-                    255,
-                    ${b.opacity}
+                    245,
+                    ${opacity}
                 )`;
-
-
-            ctx.lineWidth = .7;
 
 
             ctx.shadowBlur = 10;
 
             ctx.shadowColor =
-                "#27dfff";
+                "rgba(0,210,255,.8)";
 
 
-            ctx.stroke();
+            ctx.fill();
 
         }
     );
 
 
     requestAnimationFrame(
-        animate
+        animateParticles
     );
 
 }
 
 
-animate();
+animateParticles();
+
+
+
+/* =====================================================
+   PARALLAX
+===================================================== */
+
+let mouseX = 0;
+let mouseY = 0;
+
+let currentX = 0;
+let currentY = 0;
+
+
+window.addEventListener(
+    "mousemove",
+    e => {
+
+        mouseX =
+            (
+                e.clientX /
+                window.innerWidth
+                - .5
+            ) * 25;
+
+
+        mouseY =
+            (
+                e.clientY /
+                window.innerHeight
+                - .5
+            ) * 20;
+
+    }
+);
+
+
+
+/* =====================================================
+   MOBILE TOUCH PARALLAX
+===================================================== */
+
+window.addEventListener(
+    "touchmove",
+    e => {
+
+        if(!e.touches.length)
+            return;
+
+
+        const touch =
+            e.touches[0];
+
+
+        mouseX =
+            (
+                touch.clientX /
+                window.innerWidth
+                - .5
+            ) * 18;
+
+
+        mouseY =
+            (
+                touch.clientY /
+                window.innerHeight
+                - .5
+            ) * 15;
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+/* =====================================================
+   SMOOTH PARALLAX LOOP
+===================================================== */
+
+function parallax(){
+
+    currentX +=
+        (
+            mouseX -
+            currentX
+        ) * .045;
+
+
+    currentY +=
+        (
+            mouseY -
+            currentY
+        ) * .045;
+
+
+    const visual =
+        document.querySelector(
+            ".visual"
+        );
+
+
+    const content =
+        document.querySelector(
+            ".content"
+        );
+
+
+    visual.style.transform =
+
+        `
+        translate3d(
+            ${currentX * .22}px,
+            ${currentY * .22}px,
+            0
+        )
+
+        rotateX(
+            ${currentY * -.035}deg
+        )
+
+        rotateY(
+            ${currentX * .035}deg
+        )
+        `;
+
+
+    content.style.transform =
+
+        `
+        translate3d(
+            ${currentX * -.07}px,
+            ${currentY * -.07}px,
+            0
+        )
+        `;
+
+
+    requestAnimationFrame(
+        parallax
+    );
+}
+
+
+parallax();
 
 </script>
 
